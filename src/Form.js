@@ -1,13 +1,18 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import './index.css';
 
 export default class Form extends React.Component {
   state = {
     firstName: "",
     lastName: "",
+    dniType: "",
     dni: "",
+    birth:"",
+    registrationDate: "",
+    sex:"",
+    phone:"",
     email: "",
-    password: ""
   };
 
   change = e => {
@@ -18,60 +23,115 @@ export default class Form extends React.Component {
   };
 
   onSubmit = e => {
+   
     e.preventDefault();
     // this.props.onSubmit(this.state);
+
+    Form.propTypes = {
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      dni: PropTypes.number.isRequired,
+      phone: PropTypes.number.isRequired,
+      email: PropTypes.string.isRequired,
+    }
+
     this.setState({
       firstName: "",
       lastName: "",
       dni: "",
+      dniType: "",
+      birth:"",
+      registrationDate:"",
+      sex:"",
+      phone:"",
       email: "",
-      password: ""
     });
     this.props.onChange({
       firstName: "",
       lastName: "",
       dni: "",
+      dniType: "",
+      birth:"",
+      registrationDate:"",
+      sex:"",
+      phone:"",
       email: "",
-      password: ""
     });
   };
 
   render() {
     return (
       <form className="formulario">
-        <input 
-          name="firstName"
-          placeholder="Nombre"
-          value={this.state.firstName}
-          onChange={e => this.change(e)}
-        />
+        <div className="Paciente">Nuevo paciente </div>
+        <label> {"Nombre:   "}</label>  
+          <input 
+            name="firstName"
+            placeholder="Ingrese nombre..."
+            value={this.state.firstName}
+            onChange={e => this.change(e)}
+          /> 
         <br />
+        <label>{"Apellido:  "}</label>
+          <input
+            name="lastName"
+            placeholder="Ingrese apellido..."
+            value={this.state.lastName}
+            onChange={e => this.change(e)}
+          />
+        <br />
+        <label>{"Tipo Dni: "}</label>
         <input
-          name="lastName"
-          placeholder="Apellido"
-          value={this.state.lastName}
+          name="dniType"
+          placeholder="Tipo Dni"
+          value={this.state.dniType}
           onChange={e => this.change(e)}
         />
         <br />
+        <label>{"Dni:  "}</label>
         <input
           name="dni"
-          placeholder="DNI"
+          placeholder="Ingrese número Dni..."
           value={this.state.dni}
           onChange={e => this.change(e)}
         />
         <br />
+        <label>{"Fecha de nacimiento: "}</label>
         <input
-          name="email"
-          placeholder="Email"
-          value={this.state.email}
+          name="birth"
+          placeholder="Fecha de nacimiento"
+          value={this.state.birth}
           onChange={e => this.change(e)}
         />
         <br />
+        <label>{"Fecha alta: "}</label>
         <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={this.state.password}
+          name="registrationDate"
+          placeholder="Fecha Alta"
+          value={this.state.registrationDate}
+          onChange={e => this.change(e)}
+        />
+        <br /> 
+        <label>{"Sexo: "}</label>
+        <input
+          name="sex"
+          placeholder="Sexo"
+          value={this.state.sex}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <label>{"Teléfono: "}</label>
+        <input
+          name="phone"
+          placeholder="Ingrese teléfono..."
+          value={this.state.phone}
+          onChange={e => this.change(e)}
+        />
+        <br />
+        <label>{"Email: "}</label>
+        <input
+          name="email"
+          placeholder="Ingrese mail..."
+          value={this.state.email}
           onChange={e => this.change(e)}
         />
         <br />
@@ -80,3 +140,4 @@ export default class Form extends React.Component {
     );
   }
 }
+
