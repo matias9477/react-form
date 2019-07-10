@@ -3,3 +3,13 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.formulario{
+  background-color: cornsilk;
+}
+
+.boton{
+  background-color: orange; 
+  color: palevioletred;
+  
+}

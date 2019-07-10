@@ -1,10 +1,11 @@
 import React from "react";
+import './index.css';
 
 export default class Form extends React.Component {
   state = {
     firstName: "",
     lastName: "",
-    username: "",
+    dni: "",
     email: "",
     password: ""
   };
@@ -22,14 +23,14 @@ export default class Form extends React.Component {
     this.setState({
       firstName: "",
       lastName: "",
-      username: "",
+      dni: "",
       email: "",
       password: ""
     });
     this.props.onChange({
       firstName: "",
       lastName: "",
-      username: "",
+      dni: "",
       email: "",
       password: ""
     });
@@ -37,25 +38,25 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <form>
-        <input
+      <form className="formulario">
+        <input 
           name="firstName"
-          placeholder="First name"
+          placeholder="Nombre"
           value={this.state.firstName}
           onChange={e => this.change(e)}
         />
         <br />
         <input
           name="lastName"
-          placeholder="Last name"
+          placeholder="Apellido"
           value={this.state.lastName}
           onChange={e => this.change(e)}
         />
         <br />
         <input
-          name="username"
-          placeholder="Username"
-          value={this.state.username}
+          name="dni"
+          placeholder="DNI"
+          value={this.state.dni}
           onChange={e => this.change(e)}
         />
         <br />
@@ -74,7 +75,7 @@ export default class Form extends React.Component {
           onChange={e => this.change(e)}
         />
         <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
+        <button className="boton" onClick={e => this.onSubmit(e)}>Registrar</button>
       </form>
     );
   }
